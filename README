@@ -1,2 +1,12 @@
  A place for me to mess around with various computer science related things. At the moment its a few small test programs.
 
+* brainfuck
+  Brainfuck interpreter written in C
+
+* expr_parse
+  For playing with different techniques for expressing parsing in C++. So far
+  just a precedence climbing parser based on
+  http://eli.thegreenplace.net/2012/08/02/parsing-expressions-by-precedence-climbing/
+
+* redblack
+  Messing about with redblack trees while I'm reading CLRS
