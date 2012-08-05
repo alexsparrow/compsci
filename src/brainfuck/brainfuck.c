@@ -82,23 +82,23 @@ int main(int argc, char** argv){
         c = getc(f); pc++;
         if (debug) printf("Character: %c, line: %d\n", c, line);
         switch(c){
-            case 10: /* Newline */
+            case '\n':
                 if(debug) printf("Line %d\n", line);
                 line += 1; break;
-            case 62: /* > */
+            case '>':
                 dp++; break;
-            case 60: /* < */
+            case '<':
                 dp--; break;
-            case 43: /* + */
+            case '+':
                 (*dp)++; break;
-            case 45: /* - */
+            case '-':
                 (*dp)--; break;
-            case 46: /* . */
+            case '.': 
                 if(debug) printf("Print statement: %d\n", line);
                 printf("%c", *dp); break;
-            case 44: /* , */
+            case ',': 
                 (*dp) = getchar(); break;
-            case 91: /* [ */
+            case '[': 
                 if(*dp == 0){ /* If pointer is zero, find matching closing bracket */
                     int depth = 1;
                     do{
@@ -124,7 +124,7 @@ int main(int argc, char** argv){
                     }
                 }
                 break;
-            case 93: /* ] */
+            case ']':
                 if(*dp){ /* Loop back to beginning, but don't remove loop start point from stack */
                     struct ll* st = ll_peek();
                     pc = st->pos;
