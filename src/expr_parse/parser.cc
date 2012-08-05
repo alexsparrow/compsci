@@ -19,15 +19,15 @@ ExprParser::Token* ExprParser::GetToken(){
     while(isspace(c) && pos_ < in_.size()) c = in_[pos_++];
     std::stringstream ss; 
     switch(c){
-        case 43:
-        case 45:
-        case 42:
-        case 47:
+        case '+':
+        case '-':
+        case '*':
+        case '/':
             ss.put(c);
             return new Token(TOK_OP, ss.str()); 
-        case 40:
+        case '(':
             return new Token(TOK_OPEN_PAREN);
-        case 41:
+        case ')':
             return new Token(TOK_CLOSE_PAREN);
         default:
             if(isdigit(c)){
@@ -41,7 +41,7 @@ ExprParser::Token* ExprParser::GetToken(){
                 pos_--;
                 return new Token(TOK_NUM, ss.str()); 
             }
-            else std::cout << "Unrecognised character: " << c;
+            else std::cout << "Unrecognised character: " << c << "\n";
     }
 }
 

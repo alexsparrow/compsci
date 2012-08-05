@@ -1,3 +1,5 @@
+#ifndef PRECEDENCE_CLIMB_HH
+#define PRECEDENCE_CLIMB_HH
 
 #include "parser.hh"
 
@@ -13,3 +15,4 @@ class PrecedenceClimbingParser : public ExprParser {
     double Expression(int min_prec);
 };
 
+#endif
