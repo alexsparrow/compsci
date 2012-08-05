@@ -61,15 +61,16 @@ double PrecedenceClimbingParser::Expression(int min_prec){
     return lhs;
 }
 
-void PrecedenceClimbingParser::Parse(){
+double PrecedenceClimbingParser::Evaluate(){
     NextToken();
-    std::cout << "Answer is: " << Expression(1) << "\n";
+    return Expression(1);
 }
 
 int main(int argc, char** argv){
     std::string inp;
+    std::cout << "Give me an expression : ";
     getline(std::cin, inp);
     PrecedenceClimbingParser parser(inp);
-    parser.Parse();
+    std::cout << "Answer = " << parser.Evaluate() << "\n";
 
 }

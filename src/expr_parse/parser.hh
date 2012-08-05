@@ -34,6 +34,6 @@ class ExprParser {
     ExprParser(const std::string s);
     void PrintParseStatus();
     Token* GetToken();
-    virtual void Parse() = 0;
+    virtual double Evaluate() = 0;
 };
 #endif    

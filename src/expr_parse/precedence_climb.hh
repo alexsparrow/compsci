@@ -7,7 +7,7 @@ class PrecedenceClimbingParser : public ExprParser {
     public:
     PrecedenceClimbingParser(const std::string expr) : ExprParser(expr), tok_(0) {}
 
-    void Parse();
+    double Evaluate();
     private:
     ExprParser::Token * tok_;
     void NextToken();
