@@ -2,12 +2,14 @@
 #include <iostream>
 #include <cstdlib>
 
+/* Advance to next token */
 void PrecedenceClimbingParser::NextToken(){
     if(tok_)
         delete tok_;
     tok_ = GetToken();
 }
 
+/* Compute an atom input. Either a numeric constant or a bracketed subexpression */
 double PrecedenceClimbingParser::Atom(){
     std::cout << "Atom: " << tok_->val << "\n";
     PrintParseStatus();
@@ -36,6 +38,7 @@ double PrecedenceClimbingParser::Atom(){
     }
 }
 
+/* Evaluate an expression for terms with precedence >= min_prec */
 double PrecedenceClimbingParser::Expression(int min_prec){
     std::cout << "Expr: " << tok_->val << " " << min_prec << std::endl;
     PrintParseStatus();
